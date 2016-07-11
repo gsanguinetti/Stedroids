@@ -17,25 +17,31 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Yey! now i'm on Stedroids!"/>
+            android:text="Yey! now i'm on Stedroids!" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_centerInParent="true">
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New MVVM Activity"
-            android:onClick="@{viewModel::onNewSampleFragmentButtonClick}"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{viewModel::onNewSampleFragmentButtonClick}"
+                android:text="New MVVM Activity" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New Couchdb Activity"
-            android:onClick="@{viewModel::onNewCouchdbFragmentButtonClick}"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{viewModel::onNewCouchdbFragmentButtonClick}"
+                android:text="New Couchdb Activity" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{viewModel::onNewRecyclerFragmentButtonClick}"
+                android:text="New Recycler Activity" />
 
         </LinearLayout>
 

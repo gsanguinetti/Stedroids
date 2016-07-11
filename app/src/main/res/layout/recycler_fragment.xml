@@ -1,0 +1,15 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="viewModel" type="com.stedroids.stedroids.recyclerfragment.RecyclerViewModel"/>
+        <import type="com.stedroids.lists.LayoutManagers" />
+    </data>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="@{LayoutManagers.grid(2)}"
+        app:items="@{viewModel.items}"
+        app:itemView="@{viewModel.itemView}"/>
+
+</layout>

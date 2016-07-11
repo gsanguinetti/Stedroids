@@ -20,6 +20,8 @@
         </activity>
         <activity android:name=".samplefragment.SampleFragmentActivity"></activity>
         <activity android:name=".couchdbfragment.CouchDBActivity"></activity>
+        <activity android:name=".recyclerfragment.RecyclerActivity"></activity>
+
     </application>
 
 </manifest>

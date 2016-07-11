@@ -1,1 +1,1 @@
-include ':app', ':framework', ':couchdb', ':imageloader.picasso'
+include ':app', ':framework', ':couchdb', ':imageloader.picasso', ':lists'

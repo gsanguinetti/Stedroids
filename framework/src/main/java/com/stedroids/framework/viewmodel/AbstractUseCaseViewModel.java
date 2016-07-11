@@ -1,31 +1,32 @@
 package com.stedroids.framework.viewmodel;
 
 import android.databinding.ViewDataBinding;
-import android.support.annotation.NonNull;
 
-import com.stedroids.framework.usecase.UseCase;
 import com.stedroids.framework.usecase.UseCaseListener;
+import com.stedroids.framework.viewmodel.helper.UseCaseExecutorHelper;
+import com.stedroids.framework.viewmodel.helper.UseCaseHandler;
 
 /**
  * Created by gastonsanguinetti on 03/07/16.
  */
-public abstract class AbstractUseCaseViewModel<T extends ViewDataBinding, U> extends AbstractViewModel<T>
-    implements UseCaseListener<U>{
+public abstract class AbstractUseCaseViewModel<T extends ViewDataBinding, U>
+        extends AbstractViewModel<T>
+        implements UseCaseListener<U>, UseCaseHandler<U> {
 
     protected U data;
-    protected UseCase<U> useCase;
+    protected UseCaseExecutorHelper<U> executorHelper = new UseCaseExecutorHelper<>();
 
-    boolean useCaseAlreadyExecutedOnce = false;
+    @Override
+    public void onViewModelCreated() {
+        super.onViewModelCreated();
+        executorHelper.setUseCase(getUseCase(), this);
+        executorHelper.setExecutionType(getExecutiontype());
+    }
 
     @Override
     public void onResume() {
         super.onResume();
-
-        if(getExecutiontype().equals(UseCaseExecutionType.ALWAYS)
-                || getExecutiontype().equals(UseCaseExecutionType.ONCE) && !useCaseAlreadyExecutedOnce) {
-            runUseCase();
-            useCaseAlreadyExecutedOnce = true;
-        }
+        executorHelper.doExecuteUseCase();
     }
 
     @Override
@@ -39,14 +40,6 @@ public abstract class AbstractUseCaseViewModel<T extends ViewDataBinding, U> ext
     }
 
     public void runUseCase() {
-        useCase = getUseCase();
-        useCase.setUseCaseListener(this);
-        useCase.runUseCase();
+        executorHelper.runUseCase();
     }
-
-    @NonNull
-    public abstract UseCase<U> getUseCase();
-
-    @NonNull
-    public abstract UseCaseExecutionType getExecutiontype();
 }

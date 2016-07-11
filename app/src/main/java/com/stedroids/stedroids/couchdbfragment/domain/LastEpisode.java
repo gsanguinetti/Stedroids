@@ -1,6 +1,7 @@
 package com.stedroids.stedroids.couchdbfragment.domain;
 
 import com.stedroids.framework.domain.DomainBase;
+import com.stedroids.stedroids.R;
 
 /**
  * Created by gastonsanguinetti on 04/07/16.
@@ -26,5 +27,9 @@ public class LastEpisode extends DomainBase {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public int getPlaceholder() {
+        return R.drawable.placeholder;
     }
 }

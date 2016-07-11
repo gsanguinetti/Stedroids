@@ -1,9 +1,13 @@
 package com.stedroids.framework.ui;
 
+import android.databinding.BindingAdapter;
 import android.databinding.ViewDataBinding;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.widget.ImageView;
 
+import com.stedroids.framework.image.ImageLoaderHelper;
 import com.stedroids.framework.viewmodel.AbstractViewModel;
 
 import cz.kinst.jakub.viewmodelbinding.ViewModelBindingConfig;

@@ -6,6 +6,8 @@ import android.view.View;
 import com.stedroids.framework.viewmodel.AbstractViewModel;
 import com.stedroids.stedroids.couchdbfragment.CouchDBActivity;
 import com.stedroids.stedroids.databinding.ActivityMainBinding;
+
+import com.stedroids.stedroids.recyclerfragment.RecyclerActivity;
 import com.stedroids.stedroids.samplefragment.SampleFragmentActivity;
 
 /**
@@ -20,4 +22,9 @@ public class MainViewModel extends AbstractViewModel<ActivityMainBinding> {
     public void onNewCouchdbFragmentButtonClick(View v) {
         getContext().startActivity(new Intent(getContext(), CouchDBActivity.class));
     }
+
+    public void onNewRecyclerFragmentButtonClick(View v) {
+        getContext().startActivity(new Intent(getContext(), RecyclerActivity.class));
+    }
+
 }

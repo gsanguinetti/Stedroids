@@ -1,9 +1,12 @@
 package com.stedroids.stedroids.couchdbfragment;
 
+import android.databinding.BindingAdapter;
 import android.databinding.ObservableField;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
+import android.widget.ImageView;
 
+import com.stedroids.framework.image.ImageLoaderHelper;
 import com.stedroids.framework.usecase.UseCase;
 import com.stedroids.framework.viewmodel.AbstractUseCaseViewModel;
 import com.stedroids.framework.viewmodel.UseCaseExecutionType;
@@ -37,7 +40,7 @@ public class SampleCouchDbViewModel extends AbstractUseCaseViewModel<CouchdbFrag
     public void onUseCaseFinished(List<LastEpisode> response) {
         episodes = response;
         notifyChange();
-        refreshImages();
+        //refreshImages();
     }
 
     public String getEpisodesText() {
@@ -46,6 +49,14 @@ public class SampleCouchDbViewModel extends AbstractUseCaseViewModel<CouchdbFrag
             for (LastEpisode last: episodes) {
                 text += last.getName() + "\n";
             }
+        }
+        return text;
+    }
+
+    public String getEpisodesImg() {
+        String text = "";
+        if(episodes != null) {
+            text = episodes.get(0).getImg();
         }
         return text;
     }
