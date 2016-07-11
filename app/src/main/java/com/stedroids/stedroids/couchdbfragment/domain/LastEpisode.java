@@ -1,6 +1,6 @@
 package com.stedroids.stedroids.couchdbfragment.domain;
 
-import com.stedroids.framework.domain.DomainBase;
+import com.stedroids.framework.model.DomainBase;
 import com.stedroids.stedroids.R;
 
 /**

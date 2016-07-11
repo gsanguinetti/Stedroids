@@ -2,6 +2,9 @@ package com.stedroids.framework.global;
 
 import android.app.Application;
 
+import com.raizlabs.android.dbflow.config.FlowConfig;
+import com.raizlabs.android.dbflow.config.FlowManager;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,6 +19,7 @@ public class AbstractApplication extends Application {
     public void onCreate() {
         super.onCreate();
         pluggedComponents = new HashMap<>();
+        initDB();
     }
 
     public void plugComponent(PlugableComponent component) {
@@ -28,6 +32,12 @@ public class AbstractApplication extends Application {
 
     public PlugableComponent getPluggedComponent(String plugId) {
         return pluggedComponents.get(plugId);
+    }
+
+    public void initDB() {
+        FlowManager.init(new FlowConfig.Builder(this)
+                .openDatabasesOnInit(true)
+                .build());
     }
 
 }
