@@ -11,6 +11,7 @@ public abstract class TaskUseCase<T> extends UseCase<T> {
         try {
             data = execute();
         } catch (Exception ex) {
+            errorMessage = ex.getMessage();
             return false;
         }
         return true;

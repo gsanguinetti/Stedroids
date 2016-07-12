@@ -1,6 +1,8 @@
 package com.stedroids.framework.viewmodel;
 
 import android.databinding.ViewDataBinding;
+import android.os.AsyncTask;
+import android.view.View;
 
 import com.stedroids.framework.usecase.UseCaseListener;
 import com.stedroids.framework.viewmodel.helper.UseCaseExecutorHelper;
@@ -19,27 +21,56 @@ public abstract class AbstractUseCaseViewModel<T extends ViewDataBinding, U>
     @Override
     public void onViewModelCreated() {
         super.onViewModelCreated();
-        executorHelper.setUseCase(getUseCase(), this);
         executorHelper.setExecutionType(getExecutiontype());
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        executorHelper.doExecuteUseCase();
+        handleUseCase();
     }
 
     @Override
     public void onUseCaseFinishFailed(String error) {
-        // Override me
+        notifyChange();
     }
 
     @Override
     public void onUseCaseStarted() {
-        // Override me
+        notifyChange();
+    }
+
+    private void handleUseCase() {
+        if(executorHelper.canRun()) {
+            runUseCase();
+        }
     }
 
     public void runUseCase() {
-        executorHelper.runUseCase();
+        if(executorHelper.canRun()) {
+            executorHelper.setUseCase(getUseCase(), this);
+            executorHelper.doExecuteUseCase();
+        } else {
+            throw new IllegalStateException("UseCase is not set to run at this moment");
+        }
+    }
+
+    public boolean isUseCaseFinished() {
+        return executorHelper.getUseCase().getStatus() == AsyncTask.Status.FINISHED;
+    }
+
+    public boolean isUseCaseFailed() {
+        return isUseCaseFinished()
+                && executorHelper.getUseCase().hasFailed();
+    }
+
+    public View.OnClickListener onRetryClick() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                executorHelper.resetExecutor();
+                handleUseCase();
+            }
+        };
     }
 }

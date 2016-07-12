@@ -23,6 +23,7 @@ public abstract class CouchDbUseCase<T> extends UseCase<T> {
             Log.d(LOG_TAG, client.getDBUri().toString());
             data = execDBOperation(client);
         } catch (Exception ex) {
+            errorMessage = ex.getMessage();
             return false;
         }
         client.shutdown();

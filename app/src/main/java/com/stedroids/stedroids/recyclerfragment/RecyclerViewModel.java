@@ -36,12 +36,22 @@ public class RecyclerViewModel extends AbstractListViewModel<RecyclerFragmentBin
     @NonNull
     @Override
     public UseCaseExecutionType getExecutiontype() {
-        return  UseCaseExecutionType.ONCE;
+        return  UseCaseExecutionType.ALWAYS;
     }
 
     @Override
     public void onUseCaseFinished(List<LastEpisode> response) {
         items.addAll(response);
         notifyChange();
+    }
+
+    @Override
+    public void onUseCaseStarted() {
+        items.clear();
+        super.onUseCaseStarted();
+    }
+
+    public int getLoadingLayout() {
+        return R.layout.recycler_loading;
     }
 }

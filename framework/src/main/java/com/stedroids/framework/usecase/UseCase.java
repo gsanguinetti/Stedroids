@@ -15,6 +15,7 @@ public abstract class UseCase<T> extends AsyncTask<Void, Void, Boolean>{
     //Use case response properties
     protected T data;
     protected String errorMessage;
+    protected boolean failed = false;
 
     @Override
     protected Boolean doInBackground(Void... voids) {
@@ -23,6 +24,7 @@ public abstract class UseCase<T> extends AsyncTask<Void, Void, Boolean>{
 
     @Override
     protected void onPostExecute(Boolean finishSuccessfully) {
+        failed = !finishSuccessfully;
         UseCaseListener<T> useCaseListener = listener.get();
         if(useCaseListener != null) {
             if (finishSuccessfully) {
@@ -47,5 +49,9 @@ public abstract class UseCase<T> extends AsyncTask<Void, Void, Boolean>{
 
     public void setUseCaseListener(UseCaseListener<T> listener) {
         this.listener = new WeakReference<>(listener);
+    }
+
+    public boolean hasFailed() {
+        return failed;
     }
 }

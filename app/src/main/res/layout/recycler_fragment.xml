@@ -5,11 +5,21 @@
         <import type="com.stedroids.lists.LayoutManagers" />
     </data>
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:loading_layout="@{viewModel.getLoadingLayout}"
+        app:loading_visibility="@{!viewModel.isUseCaseFinished}"
+        app:error_visibility="@{viewModel.isUseCaseFailed}"
+        app:error_retry_click="@{viewModel.onRetryClick}">
+
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutManager="@{LayoutManagers.grid(2)}"
         app:items="@{viewModel.items}"
         app:itemView="@{viewModel.itemView}"/>
+
+    </FrameLayout>
 
 </layout>
