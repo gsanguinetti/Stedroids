@@ -24,6 +24,7 @@ dependencies {
 
     compile 'com.android.support:appcompat-v7:24.0.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.squareup.okhttp:okhttp:2.4.0'
 
     compile project(path: ':framework')
 }

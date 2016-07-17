@@ -15,16 +15,6 @@ import com.stedroids.framework.utils.LayoutUtils;
  */
 public class BindingAdapters {
 
-    @BindingAdapter({"imageUrl", "placeholder"})
-    public static void loadImage(ImageView imageView, String imageUrl, Drawable drawable) {
-        ImageLoaderHelper.loadRemoteImage(imageView, imageUrl, drawable);
-    }
-
-    @BindingAdapter({"imageUrl"})
-    public static void loadImage(ImageView imageView, String imageUrl) {
-        ImageLoaderHelper.loadRemoteImage(imageView, imageUrl, imageView.getDrawable());
-    }
-
     @BindingAdapter({"loading_visibility"})
     public static void handleLoadingLayout(ViewGroup container, boolean showLoadingLayout) {
         handleLoadingLayout(container, UiDefaults.DEFAULT_LOADING_LAYOUT_RES_ID, showLoadingLayout);

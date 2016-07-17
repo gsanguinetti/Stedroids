@@ -4,10 +4,14 @@ import com.stedroids.framework.ui.AbstractViewModelFragment;
 import com.stedroids.stedroids.R;
 import com.stedroids.stedroids.databinding.SampleFragmentBinding;
 
+import cz.kinst.jakub.viewmodelbinding.ViewModelBindingHelper;
+
 /**
  * Created by gastonsanguinetti on 02/07/16.
  */
 public class SampleFragment extends AbstractViewModelFragment<SampleFragmentBinding, SampleFragmentViewModel> {
+
+    ViewModelBindingHelper viewModelBindingHelper;
 
     @Override
     public int getMainLayoutRes() {

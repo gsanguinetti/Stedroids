@@ -6,6 +6,9 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.widget.ImageView;
 
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.NetworkPolicy;
+import com.squareup.picasso.OkHttpDownloader;
 import com.squareup.picasso.Picasso;
 import com.stedroids.framework.global.PlugableComponent;
 import com.stedroids.framework.global.PlugableConstants;
@@ -19,7 +22,9 @@ public class PicassoPlugableComponent implements PlugableComponent, ImageLoader 
 
     @Override
     public void onPluggedIn(Context context) {
-        //Do nothing
+        Picasso.Builder builder = new Picasso.Builder(context);
+        builder.downloader(new OkHttpDownloader(context, Integer.MAX_VALUE));
+        Picasso.setSingletonInstance(builder.build());
     }
 
     @NonNull
@@ -40,9 +45,25 @@ public class PicassoPlugableComponent implements PlugableComponent, ImageLoader 
     }
 
     @Override
-    public void loadImage(ImageView imageView, String imageUrl, Drawable drawable) {
+    public void loadImage(final ImageView imageView, final String imageUrl, Drawable drawable, final boolean offlineCacheOnError) {
         if(canLoad(imageUrl)) {
-            Picasso.with(imageView.getContext()).load(imageUrl).placeholder(drawable).into(imageView);
+            Picasso.with(imageView.getContext()).load(imageUrl).placeholder(drawable)
+                    .into(imageView, new Callback() {
+                        @Override
+                        public void onSuccess() {
+
+                        }
+
+                        @Override
+                        public void onError() {
+                            if(offlineCacheOnError) {
+                                Picasso.with(imageView.getContext())
+                                        .load(imageUrl)
+                                        .networkPolicy(NetworkPolicy.OFFLINE)
+                                        .into(imageView);
+                            }
+                        }
+                    });
         } else {
             imageView.setImageDrawable(drawable);
         }

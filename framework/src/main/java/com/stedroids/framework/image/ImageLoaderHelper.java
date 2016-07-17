@@ -20,8 +20,8 @@ public class ImageLoaderHelper {
         withLoader(context).loadImage(observableField, imageUrl, context);
     }
 
-    public static void loadRemoteImage(ImageView imageView, String imageUrl, Drawable drawable) {
-        withLoader(imageView.getContext()).loadImage(imageView, imageUrl, drawable);
+    public static void loadRemoteImage(ImageView imageView, String imageUrl, Drawable drawable, boolean offlineCacheOnError) {
+        withLoader(imageView.getContext()).loadImage(imageView, imageUrl, drawable, offlineCacheOnError);
     }
 
     private static ImageLoader withLoader(Context context) {

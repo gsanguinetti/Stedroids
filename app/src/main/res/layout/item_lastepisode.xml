@@ -20,7 +20,8 @@
             android:scaleType="centerCrop"
             android:layout_gravity="center"
             app:imageUrl="@{item.img}"
-            app:placeholder="@{item.placeholder}" />
+            app:placeholder="@{item.placeholder}"
+            app:offlineOnError="@{true}"/>
 
         <TextView
             android:layout_width="match_parent"

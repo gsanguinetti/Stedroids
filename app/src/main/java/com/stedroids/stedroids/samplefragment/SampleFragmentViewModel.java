@@ -32,4 +32,8 @@ public class SampleFragmentViewModel extends AbstractUseCaseViewModel<SampleFrag
     public String getSampleText() {
         return text;
     }
+
+    public String getImageUrl() {
+        return "https://image.freepik.com/vector-gratis/logo-de-android_634639.jpg";
+    }
 }

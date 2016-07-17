@@ -10,5 +10,5 @@ import android.widget.ImageView;
  */
 public interface ImageLoader {
     void loadImage(ObservableField<Drawable> observableField, String imageUrl, Context context);
-    void loadImage(ImageView imageView, String imageUrl, Drawable drawable);
+    void loadImage(ImageView imageView, String imageUrl, Drawable drawable, boolean offlineCacheOnError);
 }
