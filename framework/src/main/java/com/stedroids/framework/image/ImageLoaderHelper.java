@@ -6,9 +6,8 @@ import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 
 import com.stedroids.framework.global.AbstractApplication;
-import com.stedroids.framework.global.PlugableComponent;
+import com.stedroids.framework.global.PlugableGlobalComponent;
 import com.stedroids.framework.global.PlugableConstants;
-import com.stedroids.framework.utils.StringUtils;
 
 /**
  * Created by gastonsanguinetti on 09/07/16.
@@ -30,7 +29,7 @@ public class ImageLoaderHelper {
         }
 
         AbstractApplication application = (AbstractApplication) context.getApplicationContext();
-        PlugableComponent imageLoaderComponent = application.getPluggedComponent(PlugableConstants
+        PlugableGlobalComponent imageLoaderComponent = application.getPluggedComponent(PlugableConstants
                 .IMAGE_LOADER_LIBRARY);
         if(imageLoaderComponent != null) {
             return (ImageLoader) imageLoaderComponent;

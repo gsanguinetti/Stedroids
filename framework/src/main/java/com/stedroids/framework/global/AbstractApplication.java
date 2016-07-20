@@ -13,7 +13,7 @@ import java.util.Map;
  */
 public class AbstractApplication extends Application {
 
-    Map<String, PlugableComponent> pluggedComponents;
+    Map<String, PlugableGlobalComponent> pluggedComponents;
 
     @Override
     public void onCreate() {
@@ -22,15 +22,15 @@ public class AbstractApplication extends Application {
         initDB();
     }
 
-    public void plugComponent(PlugableComponent component) {
-        PlugableComponent pluggedComponent = pluggedComponents.get(component.getPluginId());
+    public void plugComponent(PlugableGlobalComponent component) {
+        PlugableGlobalComponent pluggedComponent = pluggedComponents.get(component.getPluginId());
         if(pluggedComponent == null) {
-            component.onPluggedIn(this);
+            component.onPluggedInto(this);
             pluggedComponents.put(component.getPluginId(), component);
         }
     }
 
-    public PlugableComponent getPluggedComponent(String plugId) {
+    public PlugableGlobalComponent getPluggedComponent(String plugId) {
         return pluggedComponents.get(plugId);
     }
 

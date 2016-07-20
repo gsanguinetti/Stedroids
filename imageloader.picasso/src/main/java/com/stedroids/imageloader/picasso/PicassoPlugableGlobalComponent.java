@@ -10,7 +10,7 @@ import com.squareup.picasso.Callback;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.OkHttpDownloader;
 import com.squareup.picasso.Picasso;
-import com.stedroids.framework.global.PlugableComponent;
+import com.stedroids.framework.global.PlugableGlobalComponent;
 import com.stedroids.framework.global.PlugableConstants;
 import com.stedroids.framework.image.ImageLoader;
 import com.stedroids.framework.utils.StringUtils;
@@ -18,10 +18,10 @@ import com.stedroids.framework.utils.StringUtils;
 /**
  * Created by gastonsanguinetti on 05/07/16.
  */
-public class PicassoPlugableComponent implements PlugableComponent, ImageLoader {
+public class PicassoPlugableGlobalComponent implements PlugableGlobalComponent, ImageLoader {
 
     @Override
-    public void onPluggedIn(Context context) {
+    public void onPluggedInto(Context context) {
         Picasso.Builder builder = new Picasso.Builder(context);
         builder.downloader(new OkHttpDownloader(context, Integer.MAX_VALUE));
         Picasso.setSingletonInstance(builder.build());

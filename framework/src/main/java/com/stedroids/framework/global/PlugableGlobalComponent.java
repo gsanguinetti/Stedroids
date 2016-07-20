@@ -6,9 +6,7 @@ import android.support.annotation.NonNull;
 /**
  * Created by gastonsanguinetti on 04/07/16.
  */
-public interface PlugableComponent {
-
-    void onPluggedIn(Context context);
+public interface PlugableGlobalComponent extends Plugable<Context> {
 
     @NonNull
     String getPluginId();

@@ -3,13 +3,13 @@ package com.stedroids.framework.viewmodel;
 import android.databinding.ViewDataBinding;
 
 import com.stedroids.framework.global.AbstractApplication;
-import com.stedroids.framework.global.PlugableComponent;
+import com.stedroids.framework.global.PlugableGlobalComponent;
 
 /**
  * Created by gastonsanguinetti on 04/07/16.
  */
-public abstract class AbstractPlugableViewModel<T extends ViewDataBinding> extends AbstractViewModel<T>
-        implements PlugableComponent {
+public abstract class AbstractPlugableGlobalViewModel<T extends ViewDataBinding> extends AbstractViewModel<T>
+        implements PlugableGlobalComponent {
 
     @Override
     public void onViewModelCreated() {
