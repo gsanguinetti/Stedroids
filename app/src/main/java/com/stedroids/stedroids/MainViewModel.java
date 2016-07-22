@@ -3,6 +3,7 @@ package com.stedroids.stedroids;
 import android.content.Intent;
 import android.view.View;
 
+import com.stedroids.framework.crash.FirebaseCrashReporter;
 import com.stedroids.framework.viewmodel.AbstractViewModel;
 import com.stedroids.stedroids.couchdbfragment.CouchDBActivity;
 import com.stedroids.stedroids.databinding.ActivityMainBinding;
@@ -20,6 +21,8 @@ public class MainViewModel extends AbstractViewModel<ActivityMainBinding> {
     }
 
     public void onNewCouchdbFragmentButtonClick(View v) {
+        getAbstractApplication().getCrashReporter(FirebaseCrashReporter.class.getCanonicalName())
+                .reportControlledException(new Exception("test exception"));
         getContext().startActivity(new Intent(getContext(), CouchDBActivity.class));
     }
 

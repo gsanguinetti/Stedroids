@@ -4,6 +4,7 @@ import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
+import com.stedroids.framework.global.AbstractApplication;
 import com.stedroids.framework.viewmodel.AbstractViewModel;
 
 import cz.kinst.jakub.viewmodelbinding.ViewModelBindingConfig;
@@ -28,5 +29,9 @@ public abstract class AbstractViewModelFragment<T extends ViewDataBinding, S ext
 
     protected void onArgumentsObtained(Bundle args) {
         //Override me
+    }
+
+    public AbstractApplication getAbstractApplication() {
+        return (AbstractApplication) getActivity().getApplication();
     }
 }

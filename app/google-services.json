@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "851038461066",
+    "firebase_url": "https://stedroids-sample.firebaseio.com",
+    "project_id": "stedroids-sample",
+    "storage_bucket": "stedroids-sample.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:851038461066:android:01a6c9aa08a43ec0",
+        "android_client_info": {
+          "package_name": "com.stedroids.stedroids"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "851038461066-lvnltfdu9i3d12ipod543d9onkeuedsv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.stedroids.stedroids",
+            "certificate_hash": "F43361F488DB29F8FE31EA81CEC154E4B94C16E4"
+          }
+        },
+        {
+          "client_id": "851038461066-cun052dslk309imfmag2otjl2opsmab0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAX9jWZP9ooYLJ6P7TwkIFHGax3VKlMte0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "851038461066-cun052dslk309imfmag2otjl2opsmab0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

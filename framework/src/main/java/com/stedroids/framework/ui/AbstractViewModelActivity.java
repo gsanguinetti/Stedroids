@@ -2,6 +2,7 @@ package com.stedroids.framework.ui;
 
 import android.databinding.ViewDataBinding;
 
+import com.stedroids.framework.global.AbstractApplication;
 import com.stedroids.framework.viewmodel.AbstractViewModel;
 
 import cz.kinst.jakub.viewmodelbinding.ViewModelActivity;
@@ -18,4 +19,7 @@ public abstract class AbstractViewModelActivity<T extends ViewDataBinding, S ext
         return new ViewModelBindingConfig<>(getMainLayoutRes(), getViewModelClass());
     }
 
+    public AbstractApplication getAbstractApplication() {
+        return (AbstractApplication) getApplication();
+    }
 }
