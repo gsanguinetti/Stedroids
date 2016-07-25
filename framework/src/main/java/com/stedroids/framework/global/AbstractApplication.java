@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.raizlabs.android.dbflow.config.FlowConfig;
 import com.raizlabs.android.dbflow.config.FlowManager;
+import com.stedroids.framework.analytics.BaseAnalyticsSender;
 import com.stedroids.framework.crash.CrashReporter;
 import com.stedroids.framework.crash.FirebaseCrashReporter;
 
@@ -13,10 +14,11 @@ import java.util.Map;
 /**
  * Created by gastonsanguinetti on 04/07/16.
  */
-public class AbstractApplication extends Application {
+public abstract class AbstractApplication<T extends BaseAnalyticsSender> extends Application {
 
     Map<String, PlugableGlobalComponent> pluggedComponents;
     Map<String, CrashReporter> crashReporters;
+    T analyticsSender;
 
     @Override
     public void onCreate() {
@@ -28,6 +30,8 @@ public class AbstractApplication extends Application {
                 new FirebaseCrashReporter());
 
         initDB();
+
+        analyticsSender = startAnalyticsTrackers();
     }
 
     public void plugComponent(PlugableGlobalComponent component) {
@@ -51,8 +55,18 @@ public class AbstractApplication extends Application {
         crashReporters.put(crashClassName, crashReporter);
     }
 
+    public Map<String, CrashReporter> getCrashReporters() {
+        return crashReporters;
+    }
+
     public CrashReporter getCrashReporter(String crashClassName) {
         return crashReporters.get(crashClassName);
+    }
+
+    public abstract T startAnalyticsTrackers();
+
+    public T getAnalyticsSender() {
+        return analyticsSender;
     }
 
 }

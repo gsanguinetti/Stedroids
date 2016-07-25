@@ -5,9 +5,11 @@ import android.view.View;
 
 import com.stedroids.framework.crash.FirebaseCrashReporter;
 import com.stedroids.framework.viewmodel.AbstractViewModel;
+import com.stedroids.stedroids.analytics.SampleAnalyticsSender;
 import com.stedroids.stedroids.couchdbfragment.CouchDBActivity;
 import com.stedroids.stedroids.databinding.ActivityMainBinding;
 
+import com.stedroids.stedroids.global.SampleApp;
 import com.stedroids.stedroids.recyclerfragment.RecyclerActivity;
 import com.stedroids.stedroids.samplefragment.SampleFragmentActivity;
 
@@ -22,7 +24,7 @@ public class MainViewModel extends AbstractViewModel<ActivityMainBinding> {
 
     public void onNewCouchdbFragmentButtonClick(View v) {
         getAbstractApplication().getCrashReporter(FirebaseCrashReporter.class.getCanonicalName())
-                .reportControlledException(new Exception("test exception"));
+                .reportHandledException(new Exception("test exception"));
         getContext().startActivity(new Intent(getContext(), CouchDBActivity.class));
     }
 
@@ -30,4 +32,9 @@ public class MainViewModel extends AbstractViewModel<ActivityMainBinding> {
         getContext().startActivity(new Intent(getContext(), RecyclerActivity.class));
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((SampleApp)getAbstractApplication()).getAnalyticsSender().trackAppMenuOpened();
+    }
 }

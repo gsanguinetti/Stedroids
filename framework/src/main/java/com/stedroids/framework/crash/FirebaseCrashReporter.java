@@ -5,10 +5,10 @@ import com.google.firebase.crash.FirebaseCrash;
 /**
  * Created by gastonsanguinetti on 22/07/16.
  */
-public class FirebaseCrashReporter implements CrashReporter{
+public class FirebaseCrashReporter implements CrashReporter {
 
     @Override
-    public void reportControlledException(Exception ex) {
+    public void reportHandledException(Exception ex) {
         FirebaseCrash.report(ex);
     }
 
