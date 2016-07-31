@@ -21,6 +21,7 @@
         <activity android:name=".samplefragment.SampleFragmentActivity"></activity>
         <activity android:name=".couchdbfragment.CouchDBActivity"></activity>
         <activity android:name=".recyclerfragment.RecyclerActivity"></activity>
+        <activity android:name=".remoteconfigfragment.RemoteConfigActivity"></activity>
 
     </application>
 

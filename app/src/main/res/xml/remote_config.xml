@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- START xml_defaults -->
+<defaultsMap>
+    <entry>
+        <key>sampleBoolean</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>sampleString</key>
+        <value>local values</value>
+    </entry>
+    <entry>
+        <key>sampleLong</key>
+        <value>0</value>
+    </entry>
+    <entry>
+        <key>sampleDouble</key>
+        <value>0.1</value>
+    </entry>
+    <entry>
+        <key>sampleInteger</key>
+        <value>0</value>
+    </entry>
+</defaultsMap>

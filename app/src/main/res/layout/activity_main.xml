@@ -43,6 +43,12 @@
                 android:onClick="@{viewModel::onNewRecyclerFragmentButtonClick}"
                 android:text="New Recycler Activity" />
 
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{viewModel::onNewRemoteconfigFragmentButtonClick}"
+                android:text="New Remoteconfig Activity" />
+
         </LinearLayout>
 
     </RelativeLayout>

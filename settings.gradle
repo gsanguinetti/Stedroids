@@ -1,1 +1,1 @@
-include ':app', ':framework', ':couchdb', ':imageloader.picasso', ':lists', ':networkservice', ':firebasedatabase'
+include ':app', ':framework', ':couchdb', ':imageloader.picasso', ':lists', ':networkservice', ':firebasedatabase', ':configmanager'

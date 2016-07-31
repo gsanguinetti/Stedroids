@@ -11,6 +11,7 @@ import com.stedroids.stedroids.databinding.ActivityMainBinding;
 
 import com.stedroids.stedroids.global.SampleApp;
 import com.stedroids.stedroids.recyclerfragment.RecyclerActivity;
+import com.stedroids.stedroids.remoteconfigfragment.RemoteConfigActivity;
 import com.stedroids.stedroids.samplefragment.SampleFragmentActivity;
 
 /**
@@ -30,6 +31,10 @@ public class MainViewModel extends AbstractViewModel<ActivityMainBinding> {
 
     public void onNewRecyclerFragmentButtonClick(View v) {
         getContext().startActivity(new Intent(getContext(), RecyclerActivity.class));
+    }
+
+    public void onNewRemoteconfigFragmentButtonClick(View v) {
+        getContext().startActivity(new Intent(getContext(), RemoteConfigActivity.class));
     }
 
     @Override
