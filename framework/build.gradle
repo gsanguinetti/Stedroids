@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'com.github.dcendents.android-maven'
 
 android {
     compileSdkVersion 24
@@ -29,6 +30,8 @@ apt {
         targetModuleName 'Framework'
     }
 }
+
+group='com.github.gsanguinetti'
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
