@@ -43,6 +43,7 @@ dependencies {
     apt 'com.github.Raizlabs.DBFlow:dbflow-processor:3.1.1'
     compile 'com.github.Raizlabs.DBFlow:dbflow-core:3.1.1'
     compile 'com.github.Raizlabs.DBFlow:dbflow:3.1.1'
+    compile 'uk.co.chrisjenx:calligraphy:2.2.0'
 
     compile 'com.google.firebase:firebase-crash:9.2.1'
     compile 'com.google.firebase:firebase-core:9.2.1'
