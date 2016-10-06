@@ -4,12 +4,15 @@ import android.app.Application;
 
 import com.raizlabs.android.dbflow.config.FlowConfig;
 import com.raizlabs.android.dbflow.config.FlowManager;
+import com.stedroids.framework.R;
 import com.stedroids.framework.analytics.BaseAnalyticsSender;
 import com.stedroids.framework.crash.CrashReporter;
 import com.stedroids.framework.crash.FirebaseCrashReporter;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 /**
  * Created by gastonsanguinetti on 04/07/16.
@@ -32,6 +35,11 @@ public abstract class AbstractApplication<T extends BaseAnalyticsSender> extends
         initDB();
 
         analyticsSender = startAnalyticsTrackers();
+
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                .setFontAttrId(R.attr.fontPath)
+                .build()
+        );
     }
 
     public void plugComponent(PlugableGlobalComponent component) {
